@@ -1,71 +1,39 @@
 'use client';
-import { v4 as uuidv4 } from 'uuid';
-import { useState } from 'react';
+// HACK use uuid to create unique ids
+/* import { v4 as uuidv4 } from 'uuid'; */
+
 import Hero from './components/Hero';
-import { Todo } from './types/todo';
 import CustomInput from './components/CustomInput';
-import TodoItem from './components/TodoItem';
+/* import TodoItem from './components/TodoItem'; */
 
 export default function Home() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const totalTodos = todos.length;
-  const totalCompletedTodos = todos.filter((t) => t.completed).length;
+  // STEP 1 KEEP track of your todos
 
-  const addTodo = (newTodo: string) => {
-    if (newTodo.length > 0) {
-      const newTodoObj: Todo = {
-        id: uuidv4(),
-        title: newTodo,
-        completed: false,
-      };
+  // STEP 2 Add a new to do
+  /* const handleAddTodo = () => {}; */
 
-      setTodos((prev) => [...prev, newTodoObj]);
-    }
-  };
+  // STEP 3 Delete a todo
+  /*  const handleDelete = () => {}; */
 
-  const handleDelete = (id: string) => {
-    const updatedTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(updatedTodos);
-  };
+  // STEP 4 Mark todo as complete
+  /*  const handleComplete = () => {}; */
 
-  const handleEdit = (id: string, text: string) => {
-    setTodos((prev) =>
-      prev.map((todo) => (todo.id === id ? { ...todo, title: text } : todo))
-    );
-  };
-
-  const handleComplete = (id: string) => {
-    setTodos((prev) =>
-      prev.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
+  // STEP 4 Edit existing todo
+  /*  const handleEdit = () => {}; */
 
   return (
     <div className='flex justify-center font-[family-name:var(--font-geist-sans)]'>
       <main className='p-8 flex flex-col items-center gap-6'>
         <h1 className='text-center'>TODO APP</h1>
-        <Hero completed={totalCompletedTodos} total={totalTodos} />
-        <CustomInput addTodo={addTodo} />
+        <Hero completed={0} total={0} />
+        <CustomInput />
 
         <div className='min-w-80'>
-          {todos && todos.length > 0 ? (
-            <div>
-              {todos.map((todo) => (
-                <div key={todo.id}>
-                  <TodoItem
-                    todo={todo}
-                    onDelete={handleDelete}
-                    onComplete={handleComplete}
-                    onEdit={handleEdit}
-                  />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className='text-center'>No todos here!</p>
-          )}
+          {/*  
+            TODO Generate list of TodoItems or display <p/> tag under if there are no todos
+            <TodoItem/>
+ */}
+          <p className='text-center'>No todos here!</p>
         </div>
       </main>
     </div>
