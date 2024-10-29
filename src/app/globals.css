@@ -3,19 +3,40 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #1f1f1f;
+  --foreground: #ffffff;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  /**=========== Typography =========== */
+
+  h1,
+  .h1 {
+    @apply text-pink-300 text-3xl font-bold md:text-4xl;
+  }
+
+  h2,
+  .h2 {
+    @apply text-pink-300 text-2xl font-bold md:text-3xl;
+  }
+
+  h3,
+  .h3 {
+    @apply text-pink-300 text-xl font-bold md:text-2xl;
+  }
+
+  h4,
+  .h4 {
+    @apply text-pink-300 text-lg font-bold md:text-xl;
+  }
+
+  input {
+    @apply bg-[#454545]  focus:outline focus:outline-pink-400 p-2;
+  }
 }
