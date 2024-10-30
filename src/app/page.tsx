@@ -18,7 +18,7 @@ export default function Home() {
   // STEP 4 Mark todo as complete
   /*  const handleComplete = () => {}; */
 
-  // STEP 4 Edit existing todo
+  // STEP 5 Edit existing todo
   /*  const handleEdit = () => {}; */
 
   return (
